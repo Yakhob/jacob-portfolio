@@ -12,9 +12,9 @@ A modern, responsive personal portfolio built using React and Tailwind CSS to sh
 
 ## 📖 Overview
 
-This portfolio website is designed to present my professional profile in a clean and structured way. It highlights my projects, technical skills, resume, and contact details, making it easy for recruiters and collaborators to understand my background at a glance.
+**This portfolio website is designed to present my professional profile in a clean and structured way. It highlights my projects, technical skills, resume, and contact details, making it easy for recruiters and collaborators to understand my background at a glance.
 
-The project focuses on performance, responsiveness, and clarity, using React for component-based UI and Tailwind CSS for fast and consistent styling.
+The project focuses on performance, responsiveness, and clarity, using React for component-based UI and Tailwind CSS for fast and consistent styling.***
 
 ---
 
@@ -61,14 +61,15 @@ Run the project locally using the following steps.
 - npm
 
 ### Installation
-
+```
 1. Extract the ZIP or clone the repository  
 2. Open a terminal in the project folder  
 3. Install dependencies  
    ```bash
    npm install
-
+```
 ## 📁 Project Structure
+```
 portfolio/
 ├── public/
 │   ├── index.html
@@ -86,6 +87,7 @@ portfolio/
 ├── package.json
 ├── package-lock.json
 └── README.md
+```
 ## 📄Resume
 /public/JacobKurian_Resume.pdf
 
