@@ -4,7 +4,7 @@
 
 A modern, responsive personal portfolio built using React and Tailwind CSS to showcase projects, skills, and resume.
 
-[Live Demo](#) <!-- add when deployed -->
+[Live Demo](https://jacob-portfolio-three.vercel.app/) <!-- add when deployed -->
 
 </div>
 
