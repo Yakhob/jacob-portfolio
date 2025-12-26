@@ -14,7 +14,7 @@ A modern, responsive personal portfolio built using React and Tailwind CSS to sh
 
 **This portfolio website is designed to present my professional profile in a clean and structured way. It highlights my projects, technical skills, resume, and contact details, making it easy for recruiters and collaborators to understand my background at a glance.
 
-The project focuses on performance, responsiveness, and clarity, using React for component-based UI and Tailwind CSS for fast and consistent styling.***
+The project focuses on performance, responsiveness, and clarity, using React for component-based UI and Tailwind CSS for fast and consistent styling.**
 
 ---
 
