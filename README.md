@@ -67,3 +67,50 @@ Run the project locally using the following steps.
 3. Install dependencies  
    ```bash
    npm install
+
+## 📁 Project Structure
+portfolio/
+├── public/
+│   ├── index.html
+│   └── JacobKurian_Resume.pdf
+│
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── App.js
+│   ├── index.js
+│   └── index.css
+│
+├── tailwind.config.js
+├── package.json
+├── package-lock.json
+└── README.md
+## 📄Resume
+/public/JacobKurian_Resume.pdf
+
+## 🧪 Testing
+Testing is done manually by verifying:
+Responsive layout
+Navigation
+Resume download
+External links (GitHub, LinkedIn, Email)
+## 🚀 Deployment
+
+This project can be deployed easily using Vercel.
+
+Steps
+1.Push the repository to GitHub
+2.Import the project into Vercel
+3.Set build command:
+4.npm run build
+5.Vercel handles installation and deployment automatically
+
+
+<div align="center">
+
+⭐ Star this repo if you like the portfolio!
+
+Made with ❤️ by Jacob Kurian
+
+</div> ```
