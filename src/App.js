@@ -55,9 +55,10 @@ const projects = [
   {
     title: "Remote Job Radar (Engine A)",
     description:
-      "Multi-source remote job scanning engine that aggregates real hiring feeds and produces a filtered, high-signal job list for QA, automation, frontend, AI, and junior-to-mid technical roles.",
+      "Multi-source remote job scanning engine that aggregates real hiring feeds and produces a filtered, high-signal job list.",
     tech: "Python, Pandas, APIs, Data Filtering, Automation",
     link: "https://github.com/Yakhob",
+    previewImage: "/previews/remote-job-radar.png",
     bullets: [
       "Aggregates jobs from 8+ remote job boards and public APIs",
       "Filters by skill relevance, seniority, location, and recency",
@@ -68,9 +69,10 @@ const projects = [
   {
     title: "Wagging Wonders – E-commerce Dog Shop Platform",
     description:
-      "End-to-end testing of user and admin modules in a full-stack e-commerce platform.",
+    "End-to-end testing of user and admin modules in a full-stack e-commerce platform.",
     tech: "Manual Testing, API Testing, UI Validation",
     link: "https://github.com/Yakhob/wagging-wonders",
+    previewImage: "/previews/wagging-wonders.png",
   },
   {
     title: "Digital Library System – Django Web Application",
@@ -78,33 +80,44 @@ const projects = [
       "Tested authentication, search workflows, and role-based access in a Django-based platform.",
     tech: "Django, Manual Testing, Cross-Browser Testing",
     link: "https://github.com/Yakhob/Digital-Library-System",
+    previewImage: "/previews/digital-library.png",
+
   },
 ];
 
+
 const skillGroups = {
-  Testing: [
-    { name: "Selenium", icon: "selenium/selenium-original.svg" },
-    { name: "Postman", icon: "postman/postman-original.svg" },
-    { name: "JMeter", icon: "apache/apache-original.svg" },
-  ],
-  Backend: [
+  Languages: [
     { name: "Python", icon: "python/python-original.svg" },
+    { name: "JavaScript", icon: "javascript/javascript-original.svg" },
+  ],
+
+  "Frameworks & Libraries": [
     { name: "Django", icon: "django/django-plain.svg" },
     { name: "Flask", icon: "flask/flask-original.svg" },
     { name: "Pandas", icon: "pandas/pandas-original.svg" },
-  ],
-  Automation: [
-    { name: "n8n", icon: "apache/apache-original.svg" },
-    { name: "Requests", icon: "python/python-original.svg" },
-    { name: "BeautifulSoup", icon: "python/python-original.svg" },
-  ],
-  Tools: [
-    { name: "Git", icon: "git/git-original.svg" },
-    { name: "Linux", icon: "linux/linux-original.svg" },
-    { name: "Docker", icon: "docker/docker-original.svg" },
-    { name: "JavaScript", icon: "javascript/javascript-original.svg" },
+    { name: "BeautifulSoup", icon: "python/python-original.svg" }, // Python lib
     { name: "React", icon: "react/react-original.svg" },
   ],
+
+  "Testing Tools": [
+    { name: "Selenium", icon: "selenium/selenium-original.svg" },
+    { name: "Postman", icon: "postman/postman-original.svg" },
+    { name: "JMeter", icon: "apache/apache-original.svg" }, 
+    { name: "Jira", icon: "jira/jira-original.svg" },
+    { name: "LambdaTest", icon: "/icons/lambdatest.svg" },
+  ],
+
+  "Automation & Workflows": [
+    { name: "n8n", icon: "/icons/n8n.svg" },
+  ],
+
+  "Dev & System Tools": [
+    { name: "Git", icon: "git/git-original.svg" },
+    { name: "Docker", icon: "docker/docker-original.svg" },
+    { name: "Linux", icon: "linux/linux-original.svg" },
+  ],
+
 };
 
 /* -------------------- APP -------------------- */
@@ -224,9 +237,19 @@ export default function App() {
                 <div key={p.title}
                   className={`grid md:grid-cols-2 gap-8 p-6 rounded-2xl border ${p.featured ? "border-indigo-400/40 bg-indigo-500/5" : "border-white/10 bg-white/5"}`}
                 >
-                  <div className="rounded-xl bg-black/40 flex items-center justify-center text-gray-500">
-                    Mock Preview
-                  </div>
+                  <div className="relative rounded-xl overflow-hidden bg-black/40 border border-white/10">
+  {p.previewImage ? (
+    <img
+      src={p.previewImage}
+      alt={`${p.title} preview`}
+      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+    />
+  ) : (
+    <div className="flex items-center justify-center h-full text-gray-500">
+      Preview coming soon
+    </div>
+  )}
+</div>
 
                   <div>
                     <h3 className="text-xl font-semibold">{p.title}</h3>
