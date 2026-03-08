@@ -1,270 +1,208 @@
 import React from "react";
+import { 
+  Layout, 
+  Server, 
+  ShieldCheck, 
+  Database, 
+  ArrowRight,
+  Download,
+  Mail,
+  Linkedin,
+  Github 
+} from "lucide-react";
 
 /* -------------------- DATA -------------------- */
 
-const workflowSteps = [
-  {
-    step: "01",
-    title: "Understand & Scope",
-    points: [
-      "Understand product intent, real user flows, and expected behavior",
-      "Study APIs, data movement, integrations, edge cases, and failure points",
-    ],
-  },
-  {
-    step: "02",
-    title: "Test & Observe",
-    points: [
-      "Manual UI testing across real user and admin scenarios",
-      "API testing and response validation for accuracy and consistency",
-    ],
-  },
-  {
-    step: "03",
-    title: "Identify & Verify Issues",
-    points: [
-      "Identify defects, data mismatches, and logic gaps early",
-      "Re-test fixes and perform focused regression checks",
-    ],
-  },
-  {
-    step: "04",
-    title: "Stabilize & Strengthen",
-    points: [
-      "Reduce repeat issues through structured validation cycles",
-      "Improve reliability, consistency, usability, and system confidence",
-    ],
-  },
-];
+const socialLinks = {
+  github: "https://github.com/Yakhob",
+  linkedin: "https://www.linkedin.com/in/jacob-kurian-b78725243/", 
+};
+
 
 const workExperience = [
   {
-    role: "Software Tester (Manual + API)",
+    role: "QA Engineer (Automation & API)",
     company: "Outlier AI",
     period: "Jun 2025 – Present | Remote",
     points: [
-      "Reviewed and validated large volumes of system-generated outputs for accuracy and consistency.",
-      "Identified data errors, logical gaps, and workflow failures early in the review cycle.",
-      "Worked closely with AI-based and API-driven systems in async remote environments.",
-      "Improved output accuracy by ~30% and reduced repeat issues by ~25%.",
+      "Performed functional and regression testing on API-driven SaaS workflows, validating 200+ outputs.",
+      "Investigated frontend layout and responsiveness issues across multiple browser environments.",
+      "Logged and tracked 40+ defects with detailed reproduction steps to improve resolution efficiency.",
+      "Collaborated with developers to verify fixes and ensure stable feature releases.",
+    ],
+  },
+  {
+    role: "Web Application Tester (Manual)",
+    company: "VectorShift AI",
+    period: "Jan 2025 – Feb 2025 | Remote",
+    points: [
+      "Performed manual testing across 15+ web application pages and staging user workflows.",
+      "Reported 20+ UI and functional defects, including layout misalignment and broken user flows.",
+      "Verified fixes to ensure stable and consistent application behavior in a fast-paced environment.",
     ],
   },
 ];
 
 const projects = [
   {
-    title: "Remote Job Radar (Engine A)",
-    description:
-      "Multi-source remote job scanning engine that aggregates real hiring feeds and produces a filtered, high-signal job list.",
-    tech: "Python, Pandas, APIs, Data Filtering, Automation",
+    title: "Remote Job Intelligence Engine",
+    description: "An automation system built to aggregate and process hiring feeds into high-signal datasets.",
+    tech: "Python, Requests, BeautifulSoup, Pandas",
     link: "https://github.com/Yakhob",
-    previewImage: "/previews/remote-job-radar.png",
     bullets: [
-      "Aggregates jobs from 8+ remote job boards and public APIs",
-      "Filters by skill relevance, seniority, location, and recency",
-      "Exports a daily Excel file with only actionable roles",
+      "Processed 1000+ job listings and integrated 3+ external job sources.",
+      "Reduced manual job search time by 80% through automated extraction.",
+      "Transformed raw data into structured Excel reports with 95% accuracy."
     ],
     featured: true,
   },
   {
-    title: "Wagging Wonders – E-commerce Dog Shop Platform",
-    description:
-    "End-to-end testing of user and admin modules in a full-stack e-commerce platform.",
-    tech: "Manual Testing, API Testing, UI Validation",
-    link: "https://github.com/Yakhob/wagging-wonders",
-    previewImage: "/previews/wagging-wonders.png",
+    title: "AI Job Outreach Engine",
+    description: "A local LLM automation system designed to analyze job descriptions using n8n and Mistral.",
+    tech: "n8n, Ollama, Mistral LLM, JSON Schema",
+    link: "https://github.com/Yakhob",
+    bullets: [
+      "Extracts 10+ structured hiring attributes per job listing locally.",
+      "Implements JSON schema validation for reliable automation output.",
+      "Focuses on improving automation reliability through local LLM processing."
+    ],
+    featured: true,
   },
   {
-    title: "Digital Library System – Django Web Application",
-    description:
-      "Tested authentication, search workflows, and role-based access in a Django-based platform.",
-    tech: "Django, Manual Testing, Cross-Browser Testing",
-    link: "https://github.com/Yakhob/Digital-Library-System",
-    previewImage: "/previews/digital-library.png",
-
+    title: "Wagging Wonders Dog Shop",
+    description: "Full-stack platform managing e-commerce purchase and grooming booking workflows.",
+    tech: "PHP, MySQL, JavaScript, CRUD",
+    link: "https://github.com/Yakhob/wagging-wonders",
+    bullets: [
+      "Developed 10+ CRUD features for product and admin management.",
+      "Designed a relational database with 6+ tables, reducing load time by 30%.",
+      "Built an availability tracking system for real-time service updates."
+    ],
+    featured: false,
   },
 ];
 
+// UPDATED SKILLS DATA WITH ICON MAPPING
+const skillGroups = [
+  {
+    name: "Frontend",
+    icon: <Layout className="w-4 h-4" />,
+    skills: ["React", "JavaScript", "Tailwind CSS", "HTML5", "CSS3", "Responsive Design"]
+  },
+  {
+    name: "Backend",
+    icon: <Server className="w-4 h-4" />,
+    skills: ["Python", "PHP", "Node.js", "Express.js"]
+  },
+  {
+    name: "Testing Tools",
+    icon: <ShieldCheck className="w-4 h-4" />,
+    skills: ["Selenium", "Playwright", "Postman", "n8n", "Jira"]
+  },
+  {
+    name: "Database",
+    icon: <Database className="w-4 h-4" />,
+    skills: ["PostgreSQL", "MySQL", "SQL"]
+  }
+];
 
-const skillGroups = {
-  Languages: [
-    { name: "Python", icon: "python/python-original.svg" },
-    { name: "JavaScript", icon: "javascript/javascript-original.svg" },
-  ],
-
-  "Frameworks & Libraries": [
-    { name: "Django", icon: "django/django-plain.svg" },
-    { name: "Flask", icon: "flask/flask-original.svg" },
-    { name: "Pandas", icon: "pandas/pandas-original.svg" },
-    { name: "BeautifulSoup", icon: "python/python-original.svg" }, // Python lib
-    { name: "React", icon: "react/react-original.svg" },
-  ],
-
-  "Testing Tools": [
-    { name: "Selenium", icon: "selenium/selenium-original.svg" },
-    { name: "Postman", icon: "postman/postman-original.svg" },
-    { name: "JMeter", icon: "apache/apache-original.svg" }, 
-    { name: "Jira", icon: "jira/jira-original.svg" },
-    { name: "LambdaTest", icon: "/icons/lambdatest.svg" },
-  ],
-
-  "Automation & Workflows": [
-    { name: "n8n", icon: "/icons/n8n.svg" },
-  ],
-
-  "Dev & System Tools": [
-    { name: "Git", icon: "git/git-original.svg" },
-    { name: "Docker", icon: "docker/docker-original.svg" },
-    { name: "Linux", icon: "linux/linux-original.svg" },
-  ],
-
-};
-
-/* -------------------- APP -------------------- */
+/* -------------------- MAIN APP -------------------- */
 
 export default function App() {
   return (
-    <div className="min-h-screen text-gray-100 bg-[#0b0f1a] relative overflow-hidden">
-      {/* GRID */}
-      <div
-        className="absolute inset-0 opacity-[0.15]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
+    <div className="min-h-screen text-gray-100 bg-[#0b0f1a] relative font-sans selection:bg-indigo-500/30">
+      <div className="absolute inset-0 opacity-[0.1] pointer-events-none" 
+           style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize: "50px 50px" }} />
 
       <div className="relative z-10">
-        {/* HEADER */}
         <header className="max-w-6xl mx-auto px-6 py-4 mt-6 flex justify-between items-center bg-white/5 backdrop-blur-xl border border-white/10 rounded-full sticky top-4 z-50">
-          <div>
+          <div className="flex flex-col">
             <h1 className="text-sm font-semibold text-white">Jacob Kurian</h1>
-            <p className="text-xs text-gray-400">Software Tester (Manual + API)</p>
+            <p className="text-[10px] text-gray-400">Software Tester (Manual + API)</p>
           </div>
 
-          <nav className="hidden md:flex gap-8 text-sm text-gray-300">
-            <a href="#work" className="hover:text-white">Work</a>
-            <a href="#projects" className="hover:text-white">Projects</a>
-            <a href="#skills" className="hover:text-white">Skills</a>
-            <a href="#contact" className="hover:text-white">Contact</a>
+          <nav className="hidden md:flex gap-8 text-sm text-gray-300 font-medium">
+            <a href="#work" className="hover:text-white transition-colors">Work</a>
+            <a href="#projects" className="hover:text-white transition-colors">Projects</a>
+            <a href="#skills" className="hover:text-white transition-colors">Skills</a>
+            <a href="#contact" className="hover:text-white transition-colors">Contact</a>
           </nav>
 
           <div className="flex items-center gap-3">
-            <a href="#contact" className="hidden sm:inline px-4 py-2 text-sm rounded-full border border-white/20 hover:bg-white/10">
-              Contact Me
+            <a href={socialLinks.linkedin} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
+              <Linkedin className="w-4 h-4" />
             </a>
-            <a href="https://www.linkedin.com/in/jacob-kurian-b78725243/" target="_blank" rel="noreferrer" className="text-sm text-gray-300 hover:text-white">
-              LinkedIn
+            <a href={socialLinks.github} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
+              <Github className="w-4 h-4" />
             </a>
-            <a href="https://github.com/Yakhob" target="_blank" rel="noreferrer" className="text-sm text-gray-300 hover:text-white">
-              GitHub
-            </a>
-            <a href="/JacobKurian_Resume.pdf" download className="px-4 py-2 rounded-full text-sm bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
-              Resume
+            <a href="/JacobKurian_Resume.pdf" download className="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:scale-105 transition-all">
+              <Download className="w-3 h-3" /> Resume
             </a>
           </div>
         </header>
 
-        <main className="max-w-6xl mx-auto p-6 space-y-24">
-          {/* HERO */}
-          <section className="text-center py-24">
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-              QA Engineer & Automation-Focused Builder
+        <main className="max-w-6xl mx-auto px-6 py-20 space-y-32">
+          
+          <section className="text-center py-20">
+            <h1 className="text-5xl md:text-7xl font-black tracking-tight bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent leading-tight">
+              QA Engineer & <br /> Automation-Focused Builder
             </h1>
-            <p className="max-w-3xl mx-auto mt-6 text-gray-400 text-lg">
+            <p className="max-w-2xl mx-auto mt-8 text-gray-400 text-lg font-medium leading-relaxed">
               I support teams working on web applications, automation workflows,
               and AI-driven systems by combining QA thinking with engineering support.
             </p>
           </section>
 
           {/* WORK EXPERIENCE */}
-          <section id="work">
-            <h2 className="text-2xl font-semibold mb-10 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+          <section id="work" className="scroll-mt-32">
+            <h2 className="text-2xl font-bold mb-10 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
               Work Experience
             </h2>
-
-            {workExperience.map((job) => (
-              <div key={job.role} className="bg-white/5 border border-white/10 rounded-xl p-6">
-                <h3 className="text-xl font-semibold">{job.role}</h3>
-                <p className="text-gray-400 text-sm mb-4">
-                  {job.company} • {job.period}
-                </p>
-                <ul className="list-disc list-inside text-gray-300 space-y-1">
-                  {job.points.map((p, i) => <li key={i}>{p}</li>)}
-                </ul>
-              </div>
-            ))}
-          </section>
-
-          {/* HOW I WORK */}
-          <section>
-            <h2 className="text-2xl font-semibold text-center mb-16 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-              How I Work
-            </h2>
-
-            <div className="relative">
-              <div className="absolute left-1/2 top-0 h-full w-[2px] bg-indigo-500/30 hidden md:block" />
-
-              <div className="space-y-24">
-                {workflowSteps.map((w, i) => (
-                  <div key={w.step}
-                    className={`relative flex flex-col md:flex-row items-center ${i % 2 === 0 ? "md:justify-start" : "md:justify-end"}`}
-                  >
-                    <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-indigo-400 shadow-[0_0_20px_rgba(99,102,241,0.6)] hidden md:block" />
-
-                    <div className="md:w-[45%] bg-white/5 border border-white/10 rounded-2xl p-6">
-                      <span className="text-indigo-400 text-sm font-semibold">{w.step}</span>
-                      <h4 className="text-xl font-semibold mb-3">{w.title}</h4>
-                      <ul className="list-disc list-inside text-gray-300">
-                        {w.points.map((p, i) => <li key={i}>{p}</li>)}
-                      </ul>
-                    </div>
+            <div className="space-y-6 max-w-4xl mx-auto">
+              {workExperience.map((job, idx) => (
+                <div key={idx} className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/[0.07] transition-all group">
+                  <div className="flex flex-col md:flex-row justify-between mb-4">
+                    <h3 className="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors">{job.role}</h3>
+                    <span className="text-sm font-mono text-indigo-400">{job.period}</span>
                   </div>
-                ))}
-              </div>
+                  <p className="text-gray-300 font-medium mb-4">{job.company}</p>
+                  <ul className="space-y-2">
+                    {job.points.map((p, i) => (
+                      <li key={i} className="text-sm text-gray-400 flex items-start">
+                        <span className="text-indigo-500 mr-3">•</span>{p}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </section>
 
           {/* PROJECTS */}
-          <section id="projects">
-            <h2 className="text-2xl font-semibold mb-10 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+          <section id="projects" className="scroll-mt-32">
+            <h2 className="text-2xl font-bold mb-10 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
               Featured Projects
             </h2>
-
-            <div className="space-y-12">
-              {projects.map((p) => (
-                <div key={p.title}
-                  className={`grid md:grid-cols-2 gap-8 p-6 rounded-2xl border ${p.featured ? "border-indigo-400/40 bg-indigo-500/5" : "border-white/10 bg-white/5"}`}
-                >
-                  <div className="relative rounded-xl overflow-hidden bg-black/40 border border-white/10">
-  {p.previewImage ? (
-    <img
-      src={p.previewImage}
-      alt={`${p.title} preview`}
-      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-    />
-  ) : (
-    <div className="flex items-center justify-center h-full text-gray-500">
-      Preview coming soon
-    </div>
-  )}
-</div>
-
-                  <div>
-                    <h3 className="text-xl font-semibold">{p.title}</h3>
-                    <p className="text-gray-300 mt-3">{p.description}</p>
-                    <p className="text-sm text-gray-400 mt-2">{p.tech}</p>
-
-                    {p.bullets && (
-                      <ul className="list-disc list-inside text-gray-300 mt-3">
-                        {p.bullets.map((b, i) => <li key={i}>{b}</li>)}
+            <div className="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
+              {projects.map((project, i) => (
+                <div key={i} className="bg-white/5 border border-white/10 p-8 rounded-2xl flex flex-col md:flex-row gap-6 items-start hover:border-white/20 transition-all">
+                  <div className="flex-grow">
+                    <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
+                    <p className="text-xs text-indigo-400 font-mono mb-4 uppercase tracking-wider">{project.tech}</p>
+                    <p className="text-sm text-gray-400 mb-4">{project.description}</p>
+                    {project.bullets && (
+                      <ul className="mb-6 space-y-1">
+                         {project.bullets.map((bullet, idx) => (
+                           <li key={idx} className="text-xs text-gray-500 flex items-start">
+                             <span className="text-indigo-500 mr-2">/</span>{bullet}
+                           </li>
+                         ))}
                       </ul>
                     )}
-
-                    <a href={p.link} target="_blank" rel="noreferrer"
-                      className="inline-block mt-4 text-indigo-400 hover:underline">
-                      View Project →
+                  </div>
+                  <div className="shrink-0 pt-1">
+                    <a href={project.link} target="_blank" rel="noreferrer" className="text-sm font-bold text-white bg-white/5 border border-white/10 px-6 py-3 rounded-xl hover:bg-indigo-600 hover:border-indigo-600 transition-all inline-flex items-center group">
+                      View Source <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
                   </div>
                 </div>
@@ -272,52 +210,49 @@ export default function App() {
             </div>
           </section>
 
-          {/* SKILLS */}
-          <section id="skills">
-            <h2 className="text-2xl font-semibold mb-8 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-              Skills
+          {/* SKILLS WITH ICONS */}
+          <section id="skills" className="scroll-mt-32">
+            <h2 className="text-2xl font-bold mb-10 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+              Technical Arsenal
             </h2>
-
-            {Object.entries(skillGroups).map(([group, skills]) => (
-              <div key={group} className="mb-8">
-                <h4 className="uppercase text-gray-400 text-sm mb-4">{group}</h4>
-                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6">
-                  {skills.map((s) => (
-                    <img key={s.name}
-                      src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${s.icon}`}
-                      alt={s.name}
-                      title={s.name}
-                      className="w-10 h-10 mx-auto"
-                    />
-                  ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {skillGroups.map((group) => (
+                <div key={group.name} className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/[0.07] transition-all">
+                  <div className="flex items-center gap-3 mb-6 border-b border-white/5 pb-4">
+                    <div className="p-2 bg-indigo-500/10 rounded-lg text-indigo-400">
+                      {group.icon}
+                    </div>
+                    <h4 className="text-[10px] font-bold text-gray-300 uppercase tracking-[0.2em]">{group.name}</h4>
+                  </div>
+                  <ul className="space-y-3">
+                    {group.skills.map((skill) => (
+                      <li key={skill} className="text-sm text-gray-400 hover:text-white transition-colors cursor-default flex items-center gap-2">
+                        <span className="w-1 h-1 bg-indigo-500 rounded-full" />
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-            ))}
-          </section>
-          {/* CONTACT */}
-          <section id="contact" className="grid md:grid-cols-2 gap-12 bg-white/5 p-10 rounded-2xl">
-            <div>
-              <h2 className="text-3xl font-bold mb-4">Why Work With Me</h2>
-              <ul className="space-y-3 text-gray-300">
-                <li>✔ Clear async communication</li>
-                <li>✔ Strong QA + automation mindset</li>
-                <li>✔ Comfortable owning tasks end-to-end</li>
-                <li>✔ Focus on long-term stability</li>
-              </ul>
+              ))}
             </div>
-
-            <form className="space-y-4">
-              <input className="w-full px-4 py-3 bg-black/40 rounded-lg" placeholder="Your name" />
-              <input className="w-full px-4 py-3 bg-black/40 rounded-lg" placeholder="Your email" />
-              <textarea className="w-full px-4 py-3 bg-black/40 rounded-lg" rows="4" placeholder="Tell me what you're working on…" />
-              <button className="w-full py-3 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg">
-                Send Message
-              </button>
-            </form>
           </section>
 
-          <footer className="text-center text-gray-400 py-10">
-            © {new Date().getFullYear()} Jacob Kurian
+          {/* CONTACT */}
+          <section id="contact" className="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-3xl p-12 text-center shadow-2xl">
+            <h2 className="text-3xl md:text-4xl font-black mb-4">Let's Build Something Reliable</h2>
+            <p className="text-white/80 mb-10 max-w-lg mx-auto font-medium">Seeking roles in QA Engineering and Full-Stack Development.</p>
+            <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+              <a href="mailto:jacobkurian2004@gmail.com" className="flex items-center gap-2 px-10 py-4 bg-white text-indigo-600 font-bold rounded-xl hover:scale-105 transition-all">
+                <Mail className="w-5 h-5" /> jacobkurian2004@gmail.com
+              </a>
+              <a href={socialLinks.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-10 py-4 bg-white/10 border border-white/20 text-white font-bold rounded-xl hover:bg-white/20 transition-all">
+                <Linkedin className="w-5 h-5" /> LinkedIn
+              </a>
+            </div>
+          </section>
+
+          <footer className="text-center py-10 border-t border-white/5">
+            <p className="text-[10px] text-gray-500 uppercase tracking-[0.2em]">Jacob Kurian • {new Date().getFullYear()}</p>
           </footer>
         </main>
       </div>
