@@ -8,7 +8,9 @@ import {
   Download,
   Mail,
   Linkedin,
-  Github 
+  Github,
+  Quote,
+  Cloud
 } from "lucide-react";
 
 /* -------------------- DATA -------------------- */
@@ -17,7 +19,6 @@ const socialLinks = {
   github: "https://github.com/Yakhob",
   linkedin: "https://www.linkedin.com/in/jacob-kurian-b78725243/", 
 };
-
 
 const workExperience = [
   {
@@ -57,7 +58,19 @@ const projects = [
     featured: true,
   },
   {
-    title: "AI Job Outreach Engine",
+    title: "User Journey Breakage Detector(Under Development)",
+    description: "Flow analysis system capturing navigation events to detect workflow drop-offs.",
+    tech: "Python, JavaScript, Session Logging",
+    link: "https://github.com/Yakhob",
+    bullets: [
+      "Captures 100+ simulated user interactions to find friction points.",
+      "Detects workflow breakpoints and rendering failures in real-time.",
+      "Implements session logging for deep-dive defect reproduction."
+    ],
+    featured: true,
+  },
+  {
+    title: "AI Job Outreach Engine(Under Development)",
     description: "A local LLM automation system designed to analyze job descriptions using n8n and Mistral.",
     tech: "n8n, Ollama, Mistral LLM, JSON Schema",
     link: "https://github.com/Yakhob",
@@ -82,27 +95,44 @@ const projects = [
   },
 ];
 
-// UPDATED SKILLS DATA WITH ICON MAPPING
+const testimonials = [
+  {
+    name: "Albert Ma",
+    role: "Founder, VectorShift AI",
+    feedback: "Jacob's attention to detail during our manual testing phase was exceptional. He identified critical UI flows that were broken across mobile browsers, helping us stabilize our staging environment before launch."
+  },
+  {
+    name: "Thomas Jepsen",
+    role: "CEO, ACT Cooperative Corporation AS",
+    feedback: "A highly reliable engineer who understands both the 'how' of building and the 'why' of testing. His work on automated data pipelines showed a deep understanding of system architecture and data integrity."
+  },
+  {
+    name: "Martina Q",
+    role: "UX Designer, ACT Cooperative Corporation AS",
+    feedback: "Jacob bridges the gap between design and functionality perfectly. He doesn't just find bugs; he understands the user journey and ensures that the final implementation stays true to the UX vision."
+  }
+];
+
 const skillGroups = [
   {
-    name: "Frontend",
-    icon: <Layout className="w-4 h-4" />,
-    skills: ["React", "JavaScript", "Tailwind CSS", "HTML5", "CSS3", "Responsive Design"]
-  },
-  {
-    name: "Backend",
-    icon: <Server className="w-4 h-4" />,
-    skills: ["Python", "PHP", "Node.js", "Express.js"]
-  },
-  {
-    name: "Testing Tools",
+    name: "Testing & QA",
     icon: <ShieldCheck className="w-4 h-4" />,
-    skills: ["Selenium", "Playwright", "Postman", "n8n", "Jira"]
+    skills: ["Selenium", "Playwright", "Postman", "API Testing", "UI Debugging", "Jira"]
   },
   {
-    name: "Database",
+    name: "Development",
+    icon: <Layout className="w-4 h-4" />,
+    skills: ["React", "JavaScript", "Python", "PHP", "Node.js", "Tailwind CSS"]
+  },
+  {
+    name: "Data & DB",
     icon: <Database className="w-4 h-4" />,
-    skills: ["PostgreSQL", "MySQL", "SQL"]
+    skills: ["PostgreSQL", "MySQL", "SQL", "Pandas", "n8n"]
+  },
+  {
+    name: "DevOps & Cloud",
+    icon: <Cloud className="w-4 h-4" />,
+    skills: ["Docker", "Vercel", "Git", "GitHub Actions", "CI/CD Concepts"]
   }
 ];
 
@@ -118,14 +148,14 @@ export default function App() {
         <header className="max-w-6xl mx-auto px-6 py-4 mt-6 flex justify-between items-center bg-white/5 backdrop-blur-xl border border-white/10 rounded-full sticky top-4 z-50">
           <div className="flex flex-col">
             <h1 className="text-sm font-semibold text-white">Jacob Kurian</h1>
-            <p className="text-[10px] text-gray-400">Software Tester (Manual + API)</p>
+            <p className="text-[10px] text-gray-400">QA Engineer & Developer</p>
           </div>
 
           <nav className="hidden md:flex gap-8 text-sm text-gray-300 font-medium">
             <a href="#work" className="hover:text-white transition-colors">Work</a>
             <a href="#projects" className="hover:text-white transition-colors">Projects</a>
+            <a href="#testimonials" className="hover:text-white transition-colors">Feedback</a>
             <a href="#skills" className="hover:text-white transition-colors">Skills</a>
-            <a href="#contact" className="hover:text-white transition-colors">Contact</a>
           </nav>
 
           <div className="flex items-center gap-3">
@@ -210,7 +240,28 @@ export default function App() {
             </div>
           </section>
 
-          {/* SKILLS WITH ICONS */}
+          {/* TESTIMONIALS */}
+          <section id="testimonials" className="scroll-mt-32">
+            <h2 className="text-2xl font-bold mb-10 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+              Collaborator Feedback
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {testimonials.map((t, i) => (
+                <div key={i} className="bg-white/5 border border-white/10 p-8 rounded-2xl flex flex-col relative overflow-hidden group">
+                  <Quote className="absolute -right-2 -top-2 w-16 h-16 text-white/5 group-hover:text-indigo-500/10 transition-colors" />
+                  <p className="text-sm text-gray-300 italic mb-8 relative z-10 leading-relaxed">
+                    "{t.feedback}"
+                  </p>
+                  <div className="mt-auto">
+                    <p className="text-sm font-bold text-white">{t.name}</p>
+                    <p className="text-[10px] text-indigo-400 uppercase tracking-wider font-mono">{t.role}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* SKILLS */}
           <section id="skills" className="scroll-mt-32">
             <h2 className="text-2xl font-bold mb-10 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
               Technical Arsenal
